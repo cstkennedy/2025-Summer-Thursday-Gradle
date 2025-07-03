@@ -1,0 +1,64 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+plugins {
+    id "java"
+	id "application"
+	id "jvm-test-suite"
+}
+
+java {
+    sourceCompatibility = JavaVersion.toVersion(17)
+    targetCompatibility = JavaVersion.toVersion(17)
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// Dependencies for code in src/main
+	// implementation "jsoup...
+
+	// Dependencies for code in src/test
+	testImplementation "org.junit.jupiter:junit-jupiter:5.8.2"
+	testImplementation "org.hamcrest:hamcrest-library:2.2"
+}
+
+jar {
+	archiveBaseName = "GeneratePrimes"
+
+    manifest {
+        attributes(
+            "Main-Class": "edu.odu.cs.cs350.examples.numbers.RunPrimeGenerator"
+        )
+    }
+}
+
+run {
+	mainClassName = "edu.odu.cs.cs350.examples.numbers.RunPrimeGenerator"
+}
+
+testing {
+	suites {
+		test {
+			useJUnitJupiter()
+		}
+	}
+}
+
+test {
+    ignoreFailures = true
+
+    testLogging {
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+    }
+}
+
+
+
+
+
