@@ -1,1 +1,1 @@
-# 2025-Summer-Thursday-Gradle
+# 2025-Summer-Tuesday-Gradle
