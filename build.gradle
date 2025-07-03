@@ -92,6 +92,18 @@ integrationTest {
     finalizedBy integrationTestCodeCoverageReport
 }
 
+// Update "check" task to include integration test set
+tasks.named("check") {
+    dependsOn(testing.suites.integrationTest)
+}
+
+//------------------------------------------------------------------------------
+// Documentation Tool(s)
+//------------------------------------------------------------------------------
+javadoc {
+    failOnError = false
+}
+
 //------------------------------------------------------------------------------
 // Analysis Tools
 //------------------------------------------------------------------------------
