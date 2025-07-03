@@ -11,6 +11,9 @@ plugins {
 
     id "jacoco"
     id "jacoco-report-aggregation"
+
+    id "com.github.spotbugs" version "6.2.1"
+    id "pmd"
 }
 
 java {
@@ -117,5 +120,52 @@ jacocoTestReport {
         csv.required = true
     }
 }
+
+// SpotBugs Config
+spotbugs {
+    toolVersion = "4.9.3"
+}
+
+spotbugsMain {
+    ignoreFailures = true
+    effort = com.github.spotbugs.snom.Effort.MAX
+    reportLevel = com.github.spotbugs.snom.Confidence.values()[1] // Medium
+    reports {
+       html.required = true
+       xml.required = false
+    }
+}
+
+spotbugsTest {
+    enabled = false
+}
+
+spotbugsIntegrationTest {
+    enabled = false
+}
+// End SpotBugs Config
+
+// PMD Config
+pmd {
+    toolVersion = "7.0.0"
+
+    ignoreFailures = true
+    ruleSets = [
+        "category/java/bestpractices.xml",
+        "category/java/codestyle.xml",
+        "category/java/design.xml",
+        "category/java/errorprone.xml",
+        "category/java/performance.xml"
+    ]
+}
+
+pmdTest {
+    enabled = false
+}
+
+pmdIntegrationTest {
+    enabled = false
+}
+// End PMD Config
 
 
