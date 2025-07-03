@@ -43,8 +43,8 @@ jar {
     }
 }
 
-run {
-	mainClassName = "edu.odu.cs.cs350.examples.numbers.RunPrimeGenerator"
+application {
+	mainClass = "edu.odu.cs.cs350.examples.numbers.RunPrimeGenerator"
 }
 
 testing {
