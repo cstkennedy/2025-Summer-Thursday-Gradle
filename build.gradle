@@ -1,3 +1,9 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
 plugins {
     id "java"
     id "application"
@@ -11,6 +17,11 @@ repositories {
 dependencies {
     implementation "org.apache.poi:poi:5.2.3+"
     implementation "org.apache.poi:poi-ooxml:5.2.3+"
+}
+
+java {
+    sourceCompatibility = JavaVersion.toVersion(21)
+    targetCompatibility = JavaVersion.toVersion(21)
 }
 
 jar {
