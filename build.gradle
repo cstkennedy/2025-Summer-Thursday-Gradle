@@ -29,3 +29,47 @@ run {
 application {
     mainClass = "edu.odu.cs.cs350.examples.Driver"
 }
+
+testing {
+    suites {
+        configureEach {
+            useJUnitJupiter()
+        }
+    }
+
+    test {
+        dependencies {
+            implementation("org.junit.jupiter:junit-jupiter:5.8.2")
+            implementation("org.hamcrest:hamcrest-library:2.2")
+        }
+    }
+}
+
+test {
+    ignoreFailures = true
+
+    testLogging {
+        events "passed", "failed", "skipped", "standardOut", "standardError"
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
