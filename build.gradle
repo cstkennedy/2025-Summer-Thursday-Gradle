@@ -3,3 +3,29 @@ plugins {
     id "application"
     id "jvm-test-suite"
 }
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.apache.poi:poi:5.2.3+"
+    implementation "org.apache.poi:poi-ooxml:5.2.3+"
+}
+
+jar {
+    archiveBaseName = "Excel-Example"
+    manifest {
+        attributes(
+            "Main-Class": "edu.odu.cs.cs350.examples.Driver"
+        )
+    }
+}
+
+run {
+    mainClass = "edu.odu.cs.cs350.examples.Driver"
+}
+
+application {
+    mainClass = "edu.odu.cs.cs350.examples.Driver"
+}
